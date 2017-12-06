@@ -46,12 +46,15 @@ def get_larger_number_in_spiral(number):
 
 
 def get_next_indexes(y, x, radius):
-    curr_y, curr_x = y, x
-    if abs(curr_x) == radius and abs(curr_y) != radius:
-        curr_y = int(curr_x / radius) + curr_y
-    else:
-        curr_x = int(-1 * curr_y / radius) + curr_x
-    return curr_y, curr_x
+    if x == radius and y < radius:
+        y += 1
+    elif y == radius and x > -radius:
+        x -= 1
+    elif x == -radius and y > -radius:
+        y -= 1
+    elif y == -radius and x < radius:
+        x += 1
+    return y, x
 
 
 print(get_larger_number_in_spiral(number))
